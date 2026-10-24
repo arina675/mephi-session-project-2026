@@ -1,0 +1,182 @@
+    1  hostnamect1
+    2  hostnamectl
+    3  ip a
+    4  ping -c 4 8.8.8.8 > ~/ping.out
+    5  cat ~/ping.out
+    6  sudo dnf update -y
+    7  sudo dnf install -y nginx libcap-ng-utils
+    8  cd /tmp
+    9  sudo dnf dowload tcpdump
+   10  sudo dnf download tcpdump
+   11  ls -l /tmp/tcpdump*.rpm
+   12  sudo rpm -ivh /tmp/tcpdump*.rpm
+   13  sudo dnf install -y libc libcrypto libpcap
+   14  sudo dnf install -y glibc openssl-libs libpcap
+   15  sudo rpm -ivh /tmp/tcpdump-4.99.5-1.red80.x86_64.rpm
+   16  which tcpdump
+   17  rpm -q tcpdump
+   18  tcpdump --version
+   19  dnf history > ~/dnf.out
+   20  lsblk
+   21  sudo fdisk /dev/sdb
+   22  lsblk
+   23  sudo fdisk /dev/sdb
+   24  lsblk
+   25  sudo mkfs.ext4 -L MEPHI_WEB /dev/sdb1
+   26  sudo mkdir /mephi-web
+   27  echo "LABEL=MEPHI_WEB /mephi-web ext4 defaults 0 0" | sudo tee -a /etc/fstab
+   28  sudo mount -a
+   29  df -h /mephi-web
+   30  cat /etc/fstab
+   31  sudo systemctl enable --now nginx
+   32  sudo systemctl status nginx
+   33  sudo tee /etc/nginx/conf.d/mephi.conf > /dev/null <<'EOF'
+server {
+    listen 80 default_server;
+    server_name_;
+    root /mephi-web;
+    index index.html;
+    location / {
+        try_files $uri $uri/ =404;
+    }
+}
+EOF
+
+   34  sudo rm -f /etc/nginx/conf.d/default.conf 2>/dev/null
+   35  sudo systemctl restart nginx
+   36  sudo touch /mephi-web/index.html
+   37  sudo chown root:root /mephi-web/index.html
+   38  sudo chmod 644 /mephi-web/index.html
+   39  getenforce
+   40  sudo dnf install -y policycoreutils-python-utils
+   41  sudo semanage fcontext -a -t httpd_sys_content_t "/mephi-web(/.*)?"
+   42  sudo restorecon -Rv /mephi-web
+   43  ls -Z /mephi-web
+   44  sudo systemctl restart nginx
+   45  sudo systemctl status nginx
+   46  sudo cat -A /etc/nginx/conf.d/mephi.conf
+   47  sudo tee /etc/nginx/conf.d/mephi.conf > /dev/null <<'EOF'
+server {
+    listen 80 default_server;
+    server_name _;
+    root /mephi-web;
+    index index.html;
+    location / {
+        try_files $uri $uri/ =404;
+    }
+}
+EOF
+
+   48  sudo cat -A /etc/nginx/conf.d/mephi.conf
+   49  sudo nginx -t
+   50  sudo systemctl restart nginx
+   51  sudo systemctl status nginx
+   52  journactl -u nginx -b > ~/journalctl.out
+   53  journalctl -u nginx -b > ~/journalctl.out
+   54  echo "TEST from /mephi-web | sudo tee /mephi-web/index.html
+echo "TEST from /mephi-web" | sudo tee /mephi-web/index.html
+
+
+
+
+
+[D
+ 
+
+
+
+
+
+
+
+
+
+
+echo "TEST from /mephi-web" | sudo tee /mephi-web/index.html
+   55  echo "TEST from /mephi-web" | sudo tee /mephi-web/index.html
+   56  curl http://localhost/
+   57  sudo grep -n "server" /etc/nginx/nginx.conf
+   58  sudo nano /etc/nginx/nginx.conf
+   59  sudo nginx -t
+   60  sudo systemctl restart nginx
+   61  curl http://localhost/
+   62  sudo groupadd -g 4444 curators
+   63  sudo groupadd developers
+   64  sudo useradd -u 5501 -m -G developers user1
+   65  sudo useradd -u 5502 -m -G developers user2
+   66  sudo useradd -u 5503 -m -G developers user3
+   67  sudo useradd -g curators -m curator1
+   68  sudo useradd -g curators -m curator2
+   69  echo "user1:StudentM265832!" | sudo chpasswd
+   70  echo "user2:StudentM265832!" | sudo chpasswd
+   71  echo "user3:StudentM265832!" | sudo chpasswd
+   72  echo "curator1:CuratorM265832!" | sudo chpasswd
+   73  echo "curator2:CuratorM265832!" | sudo chpasswd
+   74  sudo mkdir -p /data/mephi-2026
+   75  sudo chown root:developers /data/mephi-2026
+   76  sudo chmod 2770 /data/mephi-2026
+   77  ls -ld /data/mephi-2026
+   78  sudo selfacl -R -m g:curators:r-x /data/mephi-2026
+   79  sudo setfacl -R -m g:curators:r-x /data/mephi-2026
+   80  sudo setfacl -d -m g:developers:rwx /data/mephi-2026
+   81  sudo setfacl -d -m g:curators:r-x /data/mephi-2026
+   82  sudo setfacl -d -m o::---         /data/mephi-2026
+   83  echo 'umask 0007' | sudo tee /etc/profile.d/mephi-umask.sh
+   84  sudo chmod +x /etc/profile.d/mephi-umask.sh
+   85  sudo -u user1 touch /data/mephi-2026/test1.txt
+   86  ls -l /data/mephi-2026/test1.txt
+   87  sudo -u user1 ls -l /data/mephi-2026/test1.txt
+   88  sudo ls -la /data/mephi-2026/
+   89  sudo -u user2 cat /data/mephi-2026/test1.txt
+   90  sudo -u user2 sh -c 'echo "append from user2" >> /data/mephi-2026/test1.tht'
+   91  sudo -u user2 cat /data/mephi-2026/test1.txt
+   92  sudo -u user2 sh -c 'echo "append from user2" >> /data/mephi-2026/test1.txt'
+   93  sudo -u user2 cat /data/mephi-2026/test1.txt
+   94  sudo -u curator1 cat /data/mephi-2026/test1.txt
+   95  sudo -u curator1 sh -c 'echo "hack" >> /data/mephi-2026/test1.txt'
+   96  cat /data/mephi-2026/test1.txt
+   97  ls -l /usr/sbin/tcpdump
+   98  sudo chmod u-s /usr/sbin/tcpdump
+   99  sudo setcap cap_net_raw,cap_net_admin+eir /usr/sbin/tcpdump
+  100  sudo setcap cap_net_raw,cap_net_admin+eip /usr/sbin/tcpdump
+  101  ls -l /usr/sbin/tcpdump
+  102  getcap /usr/sbin/tcpdump
+  103  sudo -u user1 tcpdump -i any -c 3
+  104  getcap /usr/sbin/tcpdump > ~/getcap.out
+  105  cat ~/getcap.out
+  106  getenforce
+  107  sudo semanage fcontext -a -t httpd_sys_content_t "/mephi-web(/.*)?"
+  108  sudo restorecon -Rv /mephi-web
+  109  ls -Z /mephi-web
+  110  sudo semanage fcontext -l | grep mephi
+  111  curl http://localhost/
+  112  getenforce > ~/getenforce.out
+  113  cat ~/getenforce.out
+  114  sudo ausearch -m avc -ts recent | tail -20
+  115  sudo usermod -s /sbin/nologin curator1
+  116  sudo usermod -s /sbin/nologin curator2
+  117  getent passwd curator1
+  118  getent passwd curator2
+  119  sudo su - curator1
+  120  for user in user1 user2 user3 curator1 curator2; do     sudo chage -M 90 $user; done
+  121  sudo chage -l user1
+  122  sudo nano /etc/security/pwquality.conf
+  123  sudo -u user1 passwd
+  124  sudo passwd user1
+  125  sudo nano /etc/security/pwquality.conf
+  126  grep -E "^minlen" /etc/security/pwquality.conf
+  127  grep -rE "minlen" /etc/security/pwquality.conf.d/ 2>/dev/null
+  128  grep -rE "minlen" /etc/pam.d/ 2>/dev/null
+  129  echo "minlen = 12" | sudo tee -a /etc/security/pwquality.conf
+  130  sudo passwd user1
+  131  sudo usermod -s /sbin/nologin curator1
+  132  sudo usermod -s /sbin/nologin curator2
+  133  getent passwd curator1
+  134  getent passwd curator2
+  135  sudo su - curator1
+  136  for user in user1 user2 user3 curator1 curator2; do     sudo chage -M 90 $user; done
+  137  sudo chage -l user1
+  138  sudo chage -l curator1
+  139  echo "Hello from Student: M265832" | sudo tee /mephi-web/index.html
+  140  curl http://localhost/
+  141  history > ~/history.out

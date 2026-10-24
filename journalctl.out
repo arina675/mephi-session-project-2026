@@ -1,0 +1,32 @@
+окт 17 10:41:12 mephi-2026.domain.local systemd[1]: Starting nginx.service - The nginx HTTP and reverse proxy server...
+окт 17 10:41:12 mephi-2026.domain.local nginx[30415]: nginx: the configuration file /etc/nginx/nginx.conf syntax is ok
+окт 17 10:41:12 mephi-2026.domain.local nginx[30415]: nginx: configuration file /etc/nginx/nginx.conf test is successful
+окт 17 10:41:12 mephi-2026.domain.local systemd[1]: Started nginx.service - The nginx HTTP and reverse proxy server.
+окт 17 10:56:30 mephi-2026.domain.local systemd[1]: Stopping nginx.service - The nginx HTTP and reverse proxy server...
+окт 17 10:56:30 mephi-2026.domain.local systemd[1]: nginx.service: Deactivated successfully.
+окт 17 10:56:30 mephi-2026.domain.local systemd[1]: Stopped nginx.service - The nginx HTTP and reverse proxy server.
+окт 17 10:56:30 mephi-2026.domain.local systemd[1]: Starting nginx.service - The nginx HTTP and reverse proxy server...
+окт 17 10:56:30 mephi-2026.domain.local nginx[30470]: nginx: [emerg] unknown directive "server_name_" in /etc/nginx/conf.d/mephi.conf:3
+окт 17 10:56:30 mephi-2026.domain.local nginx[30470]: nginx: configuration file /etc/nginx/nginx.conf test failed
+окт 17 10:56:30 mephi-2026.domain.local systemd[1]: nginx.service: Control process exited, code=exited, status=1/FAILURE
+окт 17 10:56:30 mephi-2026.domain.local systemd[1]: nginx.service: Failed with result 'exit-code'.
+окт 17 10:56:30 mephi-2026.domain.local systemd[1]: Failed to start nginx.service - The nginx HTTP and reverse proxy server.
+окт 17 11:41:57 mephi-2026.domain.local systemd[1]: Starting nginx.service - The nginx HTTP and reverse proxy server...
+окт 17 11:41:57 mephi-2026.domain.local nginx[31230]: nginx: [emerg] unknown directive "server_name_" in /etc/nginx/conf.d/mephi.conf:3
+окт 17 11:41:57 mephi-2026.domain.local nginx[31230]: nginx: configuration file /etc/nginx/nginx.conf test failed
+окт 17 11:41:57 mephi-2026.domain.local systemd[1]: nginx.service: Control process exited, code=exited, status=1/FAILURE
+окт 17 11:41:57 mephi-2026.domain.local systemd[1]: nginx.service: Failed with result 'exit-code'.
+окт 17 11:41:57 mephi-2026.domain.local systemd[1]: Failed to start nginx.service - The nginx HTTP and reverse proxy server.
+окт 17 11:51:24 mephi-2026.domain.local systemd[1]: Starting nginx.service - The nginx HTTP and reverse proxy server...
+окт 17 11:51:24 mephi-2026.domain.local nginx[31272]: nginx: [warn] conflicting server name "_" on 0.0.0.0:80, ignored
+окт 17 11:51:24 mephi-2026.domain.local nginx[31272]: nginx: the configuration file /etc/nginx/nginx.conf syntax is ok
+окт 17 11:51:24 mephi-2026.domain.local nginx[31272]: nginx: configuration file /etc/nginx/nginx.conf test is successful
+окт 17 11:51:24 mephi-2026.domain.local nginx[31273]: nginx: [warn] conflicting server name "_" on 0.0.0.0:80, ignored
+окт 17 11:51:24 mephi-2026.domain.local systemd[1]: Started nginx.service - The nginx HTTP and reverse proxy server.
+окт 17 12:18:44 mephi-2026.domain.local systemd[1]: Stopping nginx.service - The nginx HTTP and reverse proxy server...
+окт 17 12:18:44 mephi-2026.domain.local systemd[1]: nginx.service: Deactivated successfully.
+окт 17 12:18:44 mephi-2026.domain.local systemd[1]: Stopped nginx.service - The nginx HTTP and reverse proxy server.
+окт 17 12:18:44 mephi-2026.domain.local systemd[1]: Starting nginx.service - The nginx HTTP and reverse proxy server...
+окт 17 12:18:44 mephi-2026.domain.local nginx[31372]: nginx: the configuration file /etc/nginx/nginx.conf syntax is ok
+окт 17 12:18:44 mephi-2026.domain.local nginx[31372]: nginx: configuration file /etc/nginx/nginx.conf test is successful
+окт 17 12:18:44 mephi-2026.domain.local systemd[1]: Started nginx.service - The nginx HTTP and reverse proxy server.
